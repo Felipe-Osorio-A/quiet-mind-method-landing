@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Quiet Mind Method — Stop the 2am Spiral</title>
-  <meta name="description" content="A practical 30-page PDF guide for anyone who can't turn their brain off. 5 steps to quiet the 2am spiral and finally get out of your own head. $9.99 instant download." />
+  <title>The Quiet Mind Method — for anyone whose brain won't stop</title>
+  <meta name="description" content="A 30-page guide for the 2am spiral. Not generic advice — the actual reason your brain won't stop at night, and a system for stopping it. $9.99 instant download." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ===================== RESET & BASE ===================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -47,24 +46,20 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    /* ===================== UTILITY ===================== */
     .container {
       max-width: 1080px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    .section-pad   { padding: 96px 0; }
-    .section-pad-sm { padding: 64px 0; }
-
-    /* ===================== NAV ===================== */
+    /* ── NAV ── */
     nav {
       background: var(--navy);
-      border-bottom: 1px solid var(--navy-light);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 18px 0;
+      padding: 17px 0;
     }
 
     .nav-inner {
@@ -75,160 +70,166 @@
 
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--warm-white);
+      font-size: 1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(253,250,245,0.8);
       letter-spacing: 0.01em;
     }
 
-    .nav-logo span { color: var(--gold); }
+    .nav-logo strong {
+      color: var(--gold);
+      font-style: normal;
+      font-weight: 600;
+    }
 
     .btn-nav {
       background: var(--gold);
       color: var(--navy);
-      padding: 12px 22px;
+      padding: 11px 20px;
       border-radius: 6px;
       font-family: 'Lato', sans-serif;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      transition: background 0.2s ease, transform 0.15s ease;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
       white-space: nowrap;
     }
 
     .btn-nav:hover {
       background: var(--gold-dark);
-      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(200,169,110,0.32);
     }
 
-    /* ===================== BUTTONS ===================== */
+    /* ── BUTTONS ── */
     .btn-primary {
       display: inline-block;
       background: var(--gold);
       color: var(--navy);
-      padding: 18px 42px;
-      border-radius: 8px;
+      padding: 18px 40px;
+      border-radius: 6px;
       font-family: 'Lato', sans-serif;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 700;
       letter-spacing: 0.02em;
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
       cursor: pointer;
       border: none;
     }
 
     .btn-primary:hover {
       background: var(--gold-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(200, 169, 110, 0.35);
+      box-shadow: 0 6px 22px rgba(200,169,110,0.4);
     }
 
     .btn-large {
-      padding: 22px 52px;
-      font-size: 1.15rem;
-      border-radius: 10px;
+      padding: 20px 48px;
+      font-size: 1.08rem;
     }
 
-    /* ===================== HERO ===================== */
+    /* ── HERO ── */
     .hero {
       background: var(--navy);
-      padding: 88px 0 104px;
+      padding: 96px 0 108px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      isolation: isolate;
     }
 
-    /* Subtle radial glow behind headline */
+    /* Grain texture — makes flat color feel handmade */
     .hero::before {
       content: '';
       position: absolute;
-      top: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(200,169,110,0.08) 0%, transparent 70%);
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.038;
       pointer-events: none;
+      z-index: 0;
     }
 
+    /* Warm glow behind headline */
     .hero::after {
       content: '';
       position: absolute;
-      bottom: -60px;
-      right: -80px;
-      width: 320px;
-      height: 320px;
+      top: -140px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 860px;
+      height: 640px;
       border-radius: 50%;
-      background: rgba(200,169,110,0.04);
+      background: radial-gradient(ellipse, rgba(200,169,110,0.07) 0%, transparent 68%);
       pointer-events: none;
+      z-index: 0;
     }
 
     .hero-inner {
       position: relative;
       z-index: 1;
-      max-width: 820px;
+      max-width: 780px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    .hero-preheadline {
+    .hero-eyebrow {
       font-family: 'Lato', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(200,169,110,0.6);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 22px;
+      margin-bottom: 30px;
     }
 
+    /* Split-weight headline — visual tension */
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      color: var(--warm-white);
-      margin-bottom: 24px;
-      font-weight: 700;
+      margin-bottom: 32px;
     }
 
-    .hero h1 em {
+    .h1-light {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(1.85rem, 4vw, 2.7rem);
+      color: rgba(253,250,245,0.7);
+      line-height: 1.35;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .h1-heavy {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 5.8vw, 4rem);
+      color: var(--warm-white);
       font-style: italic;
-      color: var(--gold);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
 
     .hero-sub {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      max-width: 580px;
-      margin: 0 auto 16px;
-      line-height: 1.72;
-    }
-
-    .hero-tagline {
-      font-size: 0.92rem;
-      color: rgba(200,169,110,0.7);
-      max-width: 520px;
+      font-size: 1.04rem;
+      color: rgba(253,250,245,0.55);
+      max-width: 500px;
       margin: 0 auto 36px;
-      font-style: italic;
-      line-height: 1.6;
+      line-height: 1.82;
     }
 
-    .hero-cta-wrap { margin-bottom: 22px; }
+    .hero-cta-wrap { margin-bottom: 20px; }
 
     .hero-trust {
-      font-size: 0.85rem;
-      color: rgba(253,250,245,0.4);
-      letter-spacing: 0.03em;
+      font-size: 0.8rem;
+      color: rgba(253,250,245,0.28);
+      letter-spacing: 0.02em;
     }
 
-    .hero-trust span {
-      margin: 0 8px;
-      opacity: 0.6;
-    }
+    .hero-trust span { margin: 0 10px; }
 
     /* PDF Mockup */
     .pdf-mockup-wrap {
-      margin: 60px auto 0;
-      max-width: 340px;
+      margin: 64px auto 0;
+      max-width: 310px;
       position: relative;
     }
 
@@ -236,8 +237,8 @@
       background: var(--navy-light);
       border: 1px solid var(--navy-mid);
       border-radius: 10px;
-      padding: 44px 36px;
-      box-shadow: 16px 20px 48px rgba(0,0,0,0.35), 4px 6px 12px rgba(0,0,0,0.2);
+      padding: 38px 32px;
+      box-shadow: 18px 22px 56px rgba(0,0,0,0.42), 4px 6px 14px rgba(0,0,0,0.2);
       position: relative;
       overflow: hidden;
       text-align: left;
@@ -247,241 +248,321 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 3px;
+      height: 2px;
       background: linear-gradient(90deg, var(--gold), var(--gold-dark));
     }
 
     .pdf-mockup-label {
-      font-size: 0.68rem;
+      font-size: 0.63rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 14px;
     }
 
     .pdf-mockup h2 {
-      font-size: 1.45rem;
+      font-size: 1.3rem;
       color: var(--warm-white);
       margin-bottom: 8px;
       line-height: 1.2;
     }
 
     .pdf-mockup-subtitle {
-      font-size: 0.82rem;
-      color: rgba(253,250,245,0.55);
-      line-height: 1.5;
-      margin-bottom: 22px;
-    }
-
-    .pdf-mockup-deco {
-      position: absolute;
-      bottom: -16px; right: -16px;
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      background: rgba(200,169,110,0.06);
+      font-size: 0.78rem;
+      color: rgba(253,250,245,0.48);
+      line-height: 1.55;
+      margin-bottom: 20px;
     }
 
     .pdf-pages-badge {
       display: inline-block;
       background: var(--gold);
       color: var(--navy);
-      font-size: 0.78rem;
+      font-size: 0.73rem;
       font-weight: 700;
-      padding: 5px 14px;
-      border-radius: 20px;
+      padding: 5px 13px;
+      border-radius: 4px;
     }
 
     .pdf-mockup-shadow {
       position: absolute;
-      top: 10px; left: 10px; right: -10px; bottom: -10px;
-      background: rgba(200,169,110,0.08);
+      top: 12px; left: 12px; right: -12px; bottom: -12px;
+      background: rgba(200,169,110,0.07);
       border-radius: 10px;
       z-index: -1;
     }
 
-    /* ===================== PAIN SECTION ===================== */
-    .pain-section { background: var(--navy-light); }
-
-    .pain-section h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      color: var(--warm-white);
-      margin-bottom: 48px;
-      text-align: center;
+    /* ── PAIN SECTION — left-aligned prose, not a card grid ── */
+    .pain-section {
+      background: var(--navy-light);
+      padding: 100px 0;
     }
 
-    .pain-section h2 em {
+    .pain-inner {
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .pain-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.65rem, 3.4vw, 2.3rem);
+      color: var(--warm-white);
+      margin-bottom: 52px;
+      line-height: 1.3;
+    }
+
+    .pain-heading em {
       font-style: italic;
       color: var(--gold);
     }
 
-    .pain-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      max-width: 860px;
-      margin: 0 auto;
+    .pain-moment {
+      margin-bottom: 28px;
+      padding-left: 22px;
+      border-left: 2px solid rgba(200,169,110,0.2);
     }
 
-    .pain-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 10px;
-      padding: 22px;
-      border-left: 3px solid var(--gold);
+    .pain-moment p {
+      font-size: 1rem;
+      color: rgba(253,250,245,0.68);
+      line-height: 1.85;
     }
 
-    .pain-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-
-    .pain-item p {
-      font-size: 0.95rem;
-      color: rgba(253,250,245,0.75);
-      line-height: 1.6;
-    }
-
-    .pain-item strong {
-      display: block;
-      color: var(--warm-white);
-      margin-bottom: 4px;
-      font-size: 0.95rem;
-    }
-
-    /* ===================== SOLUTION SECTION ===================== */
-    .solution-section { background: var(--cream); }
-
-    .solution-section h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      color: var(--text);
-      margin-bottom: 14px;
-      text-align: center;
-    }
-
-    .solution-intro {
-      text-align: center;
-      color: var(--text-mid);
-      margin-bottom: 48px;
-      font-size: 1.05rem;
-    }
-
-    .solution-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      max-width: 860px;
-      margin: 0 auto 40px;
-    }
-
-    .solution-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      background: var(--warm-white);
-      border-radius: 10px;
-      padding: 22px;
-      border-left: 3px solid var(--gold);
-      border: 1px solid var(--gold-light);
-      border-left: 3px solid var(--gold);
-    }
-
-    .solution-check { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
-
-    .solution-item p { font-size: 0.97rem; color: var(--text-mid); line-height: 1.6; }
-    .solution-item strong { display: block; color: var(--text); margin-bottom: 4px; }
-
-    .solution-close {
-      text-align: center;
+    .pain-close {
+      margin-top: 52px;
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--text);
+      font-size: 1.15rem;
       font-style: italic;
+      color: rgba(253,250,245,0.45);
+      line-height: 1.5;
     }
 
-    /* ===================== WHAT'S INSIDE ===================== */
-    .inside-section { background: var(--cream-dark); }
-
-    .section-label {
-      text-align: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-      margin-bottom: 12px;
+    /* ── PULL QUOTE — intentional imperfection, bleeds grid ── */
+    .pull-quote-section {
+      background: var(--cream);
+      padding: 88px 0 72px;
     }
 
-    .section-heading {
-      text-align: center;
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    .pull-quote {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Breaks the grid slightly on purpose */
+    .pull-quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3.2vw, 2.15rem);
+      font-style: italic;
       color: var(--text);
-      margin-bottom: 12px;
+      line-height: 1.5;
+      margin-left: -20px;
+      padding-left: 36px;
+      border-left: 3px solid var(--gold);
     }
 
-    .section-sub {
-      text-align: center;
+    .pull-quote-text em {
+      color: var(--gold-dark);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .pull-quote-attr {
+      margin-top: 18px;
+      font-size: 0.84rem;
       color: var(--text-mid);
-      font-size: 1.05rem;
-      margin-bottom: 52px;
-      max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
+      padding-left: 16px;
+      opacity: 0.6;
     }
 
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    /* ── SOLUTION — quiet, warm, prose ── */
+    .solution-section {
+      background: var(--cream);
+      padding: 32px 0 100px;
+    }
+
+    .solution-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .solution-inner h2 {
+      font-size: clamp(1.65rem, 3.2vw, 2.2rem);
+      color: var(--text);
+      margin-bottom: 32px;
+      line-height: 1.3;
+    }
+
+    .solution-inner p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.88;
       margin-bottom: 20px;
     }
 
-    .cards-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      max-width: 720px;
-      margin: 0 auto;
+    .solution-inner p:last-child { margin-bottom: 0; }
+
+    .solution-inner strong { color: var(--text); }
+
+    /* ── WHAT'S INSIDE — asymmetric layout ── */
+    .inside-section {
+      background: var(--cream-dark);
+      padding: 100px 0;
     }
 
-    .card {
-      background: var(--warm-white);
-      border: 1px solid var(--gold-light);
+    .inside-header {
+      max-width: 560px;
+      margin: 0 auto 64px;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .inside-header h2 {
+      font-size: clamp(1.65rem, 3.2vw, 2.2rem);
+      color: var(--text);
+      margin-bottom: 12px;
+      margin-top: 10px;
+    }
+
+    .inside-header p {
+      color: var(--text-mid);
+      font-size: 0.98rem;
+    }
+
+    /* Featured step — wider, darker, stands out */
+    .step-featured {
+      background: var(--navy);
       border-radius: 12px;
-      padding: 28px 24px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 44px 48px;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px;
+      align-items: center;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(27,43,58,0.1);
-    }
-
-    .card-num {
+    .step-featured-num {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
+      font-size: 5.5rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold);
       line-height: 1;
+      opacity: 0.35;
+    }
+
+    .step-featured h3 {
+      font-size: 1.35rem;
+      color: var(--warm-white);
       margin-bottom: 12px;
     }
 
-    .card h3 { font-size: 1.05rem; color: var(--text); margin-bottom: 8px; }
-    .card p  { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
-
-    .card-bonus {
-      background: var(--navy);
-      border: 1px solid var(--navy-mid);
+    .step-featured p {
+      font-size: 0.96rem;
+      color: rgba(253,250,245,0.62);
+      line-height: 1.72;
     }
 
-    .card-bonus .card-num { color: var(--gold); }
-    .card-bonus h3 { color: var(--warm-white); }
-    .card-bonus p  { color: rgba(253,250,245,0.65); }
+    /* Step rows */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
 
-    /* ===================== SOCIAL PROOF ===================== */
-    .proof-section { background: var(--cream); }
+    .step-row {
+      background: var(--warm-white);
+      border: 1px solid var(--gold-light);
+      border-radius: 10px;
+      padding: 26px 30px;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .step-row-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      padding-top: 5px;
+    }
+
+    .step-row h3 {
+      font-size: 1.02rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .step-row p {
+      font-size: 0.91rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* Bonus */
+    .bonus-card {
+      background: var(--navy);
+      border-radius: 10px;
+      padding: 26px 30px;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .bonus-icon {
+      font-size: 1.5rem;
+      color: var(--gold);
+      padding-top: 5px;
+    }
+
+    .bonus-card h3 {
+      font-size: 1.02rem;
+      color: var(--warm-white);
+      margin-bottom: 6px;
+    }
+
+    .bonus-card p {
+      font-size: 0.91rem;
+      color: rgba(253,250,245,0.58);
+      line-height: 1.65;
+    }
+
+    /* ── TESTIMONIALS — real quotes, not review widgets ── */
+    .proof-section {
+      background: var(--cream);
+      padding: 100px 0;
+    }
+
+    .proof-header {
+      max-width: 480px;
+      margin: 0 auto 60px;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .proof-header h2 {
+      font-size: clamp(1.55rem, 3vw, 2.05rem);
+      color: var(--text);
+      margin-top: 10px;
+      line-height: 1.3;
+    }
 
     .testimonials-grid {
       display: grid;
@@ -490,112 +571,156 @@
     }
 
     .testimonial {
-      background: var(--warm-white);
-      border-radius: 12px;
-      padding: 32px 28px;
-      border: 1px solid var(--gold-light);
       position: relative;
+      padding: 32px 26px 26px;
+      background: var(--warm-white);
+      border-radius: 10px;
+      border: 1px solid var(--cream-dark);
     }
 
-    .testimonial::before {
-      content: '\201C';
+    /* Large opening quote in gold — looks handmade */
+    .testimonial-quote-mark {
+      display: block;
       font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      color: var(--gold-light);
-      position: absolute;
-      top: 12px; left: 22px;
-      line-height: 1;
+      font-size: 4.5rem;
+      line-height: 0.75;
+      color: var(--gold);
+      opacity: 0.5;
+      margin-bottom: 18px;
     }
-
-    .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
 
     .testimonial-text {
-      font-size: 0.95rem;
-      color: var(--text-mid);
-      line-height: 1.7;
-      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.96rem;
       font-style: italic;
+      color: var(--text);
+      line-height: 1.72;
+      margin-bottom: 22px;
     }
 
-    .testimonial-author { font-weight: 700; color: var(--text); font-size: 0.92rem; }
-    .testimonial-role   { font-size: 0.83rem; color: var(--gold-dark); }
+    /* Lowercase, small — feels personal not formal */
+    .testimonial-author {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
 
-    /* ===================== CREDIBILITY ===================== */
-    .credibility-section { background: var(--gold-pale); }
+    /* ── CREDIBILITY ── */
+    .credibility-section {
+      background: var(--gold-pale);
+      padding: 80px 0;
+    }
 
     .credibility-inner {
-      max-width: 680px;
+      max-width: 600px;
       margin: 0 auto;
-      text-align: center;
+      padding: 0 24px;
     }
 
     .credibility-inner h2 {
-      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-size: clamp(1.45rem, 2.8vw, 1.85rem);
       color: var(--text);
-      margin-bottom: 20px;
+      margin-bottom: 26px;
+      line-height: 1.35;
     }
 
     .credibility-inner p {
       color: var(--text-mid);
-      font-size: 1.02rem;
-      line-height: 1.75;
+      font-size: 1rem;
+      line-height: 1.88;
+      margin-bottom: 18px;
     }
 
-    /* ===================== FINAL CTA ===================== */
+    .credibility-inner p:last-child { margin-bottom: 0; }
+
+    /* ── FINAL CTA ── */
     .final-cta {
       background: var(--navy);
       color: var(--warm-white);
+      padding: 100px 0;
+    }
+
+    .final-cta-inner {
+      max-width: 560px;
+      margin: 0 auto;
       text-align: center;
+      padding: 0 24px;
+    }
+
+    .section-eyebrow-light {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
     }
 
     .final-cta h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
       color: var(--warm-white);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      line-height: 1.25;
     }
 
     .final-cta h2 em { color: var(--gold); font-style: italic; }
 
     .final-cta-sub {
-      font-size: 1.05rem;
-      color: var(--text-light);
-      margin-bottom: 40px;
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .price-display {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-size: 0.98rem;
       color: rgba(253,250,245,0.5);
-      margin-top: 18px;
+      margin-bottom: 38px;
+      line-height: 1.82;
     }
 
-    .price-display strong { color: var(--warm-white); font-size: 1.35rem; }
+    .price-note {
+      margin-top: 18px;
+      font-size: 0.85rem;
+      color: rgba(253,250,245,0.35);
+      letter-spacing: 0.02em;
+    }
+
+    .price-note strong { color: rgba(253,250,245,0.62); }
+
+    .trust-line {
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: rgba(253,250,245,0.22);
+      letter-spacing: 0.01em;
+    }
 
     /* FAQ */
     .faq-wrap {
-      max-width: 680px;
-      margin: 64px auto 0;
+      max-width: 600px;
+      margin: 72px auto 0;
       text-align: left;
+      padding: 0 24px;
     }
 
-    .faq-wrap h3 {
-      font-size: 1.3rem;
-      color: var(--warm-white);
-      margin-bottom: 24px;
+    .faq-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.77rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(253,250,245,0.3);
+      display: block;
       text-align: center;
-      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
     }
 
-    details { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 0; }
+    details {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
 
     summary {
       padding: 20px 0;
       cursor: pointer;
       font-weight: 700;
-      font-size: 0.97rem;
+      font-size: 0.93rem;
       color: var(--warm-white);
       list-style: none;
       display: flex;
@@ -608,7 +733,7 @@
 
     summary::after {
       content: '+';
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       color: var(--gold);
       flex-shrink: 0;
       margin-left: 16px;
@@ -618,79 +743,106 @@
     details[open] summary::after { transform: rotate(45deg); }
 
     details p {
-      padding: 0 0 20px;
-      color: rgba(253,250,245,0.6);
-      font-size: 0.95rem;
-      line-height: 1.7;
+      padding: 0 0 22px;
+      color: rgba(253,250,245,0.52);
+      font-size: 0.92rem;
+      line-height: 1.78;
     }
 
-    /* ===================== FOOTER ===================== */
+    /* ── FOOTER ── */
     footer {
       background: var(--navy);
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 28px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 32px 0;
       text-align: center;
     }
 
-    footer p { font-size: 0.82rem; color: rgba(253,250,245,0.28); }
+    .footer-personal {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.92rem;
+      color: rgba(253,250,245,0.32);
+      margin-bottom: 14px;
+    }
 
-    /* ===================== RESPONSIVE ===================== */
+    footer p {
+      font-size: 0.78rem;
+      color: rgba(253,250,245,0.18);
+    }
+
+    footer a {
+      color: rgba(253,250,245,0.28);
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--gold-light); }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .section-pad    { padding: 64px 0; }
-      .section-pad-sm { padding: 48px 0; }
+      .hero { padding: 64px 0 80px; }
+      .h1-light { font-size: 1.7rem; }
+      .h1-heavy { font-size: 2.25rem; }
 
-      .pain-list         { grid-template-columns: 1fr; }
-      .solution-list     { grid-template-columns: 1fr; }
-      .cards-grid        { grid-template-columns: 1fr; }
-      .cards-grid-2      { grid-template-columns: 1fr; }
+      .nav-logo { font-size: 0.9rem; }
+      .btn-nav  { padding: 10px 14px; font-size: 0.78rem; }
+
+      .pdf-mockup-wrap { max-width: 272px; }
+
+      .pain-section    { padding: 72px 0; }
+      .pull-quote-section { padding: 60px 0 52px; }
+      .pull-quote-text { margin-left: 0; }
+      .solution-section { padding: 24px 0 72px; }
+      .inside-section  { padding: 72px 0; }
+      .proof-section   { padding: 72px 0; }
+      .credibility-section { padding: 60px 0; }
+      .final-cta       { padding: 72px 0; }
+
+      .step-featured {
+        grid-template-columns: 1fr;
+        padding: 30px 26px;
+        gap: 14px;
+      }
+
+      .step-featured-num { font-size: 3.5rem; }
+
       .testimonials-grid { grid-template-columns: 1fr; }
-
-      .hero { padding: 60px 0 72px; }
-      .hero h1 { font-size: 2rem; }
-      .hero-trust { font-size: 0.8rem; }
-
-      .nav-logo { font-size: 1rem; }
-      .btn-nav  { padding: 10px 16px; font-size: 0.8rem; }
-
-      .pdf-mockup-wrap { max-width: 290px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===================== NAV ===================== -->
+  <!-- NAV -->
   <nav>
     <div class="container">
       <div class="nav-inner">
-        <div class="nav-logo">Quiet<span>Mind</span> Method</div>
-        <a href="https://theonefelipe.gumroad.com/l/the-quiet-mind" class="btn-nav" target="_blank" rel="noopener">Get instant access — $9.99</a>
+        <div class="nav-logo">The <strong>Quiet Mind</strong> Method</div>
+        <a href="https://theonefelipe.gumroad.com/l/the-quiet-mind" class="btn-nav" target="_blank" rel="noopener">yes, i need this — $9.99</a>
       </div>
     </div>
   </nav>
 
-  <!-- ===================== HERO ===================== -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <p class="hero-preheadline">For anyone who can't turn their brain off</p>
+      <p class="hero-eyebrow">for anyone whose brain won't stop</p>
 
-      <h1>Your mind doesn't need to<br>feel like a <em>war zone</em> anymore</h1>
+      <h1>
+        <span class="h1-light">your mind doesn't stop when the lights go off.</span>
+        <span class="h1-heavy">it gets louder.</span>
+      </h1>
 
       <p class="hero-sub">
-        A practical 30-page PDF guide that gives you 5 clear steps to quiet the 2am spiral, protect your sleep, and finally get out of your own head — starting tonight.
-      </p>
-
-      <p class="hero-tagline">
-        This isn't just for people who talk about their feelings. It's for anyone who's tired of carrying it alone.
+        A 30-page guide for the 2am spiral. Not generic advice — the actual reason your brain does this at night, and a system for stopping it. Starting tonight.
       </p>
 
       <div class="hero-cta-wrap">
         <a href="https://theonefelipe.gumroad.com/l/the-quiet-mind" class="btn-primary btn-large" target="_blank" rel="noopener">
-          Yes, I want this — $9.99
+          yes, i need this — $9.99
         </a>
       </div>
 
       <p class="hero-trust">
-        Instant PDF download <span>·</span> Secure checkout <span>·</span> No subscription
+        instant PDF download <span>·</span> secure checkout <span>·</span> no subscription
       </p>
 
       <!-- PDF Mockup -->
@@ -701,258 +853,247 @@
           <h2>The Quiet Mind Method</h2>
           <p class="pdf-mockup-subtitle">Stop the 2am Spiral and Finally Get Out of Your Own Head</p>
           <span class="pdf-pages-badge">30 pages · 5 steps</span>
-          <div class="pdf-mockup-deco"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== PAIN SECTION ===================== -->
-  <section class="pain-section section-pad">
+  <!-- PAIN — moments, not bullet points, left-aligned prose -->
+  <section class="pain-section">
     <div class="container">
-      <h2>Does any of this sound <em>familiar?</em></h2>
+      <div class="pain-inner">
+        <span class="section-eyebrow">if this sounds familiar</span>
 
-      <ul class="pain-list">
-        <li class="pain-item">
-          <div class="pain-icon">🌙</div>
-          <div>
-            <strong>You lie awake at 2am</strong>
-            <p>Your body is exhausted but your brain won't stop. You're replaying a conversation from three days ago and you can't figure out how to make it stop.</p>
-          </div>
-        </li>
-        <li class="pain-item">
-          <div class="pain-icon">🔄</div>
-          <div>
-            <strong>You replay everything</strong>
-            <p>You go over what you said, what they said, what you should have said. Over and over. Long after it should be done, your brain is still rewinding.</p>
-          </div>
-        </li>
-        <li class="pain-item">
-          <div class="pain-icon">📉</div>
-          <div>
-            <strong>You catastrophise on command</strong>
-            <p>Something small happens and within minutes your brain has escalated it to the worst possible outcome — and it feels completely real and logical.</p>
-          </div>
-        </li>
-        <li class="pain-item">
-          <div class="pain-icon">😮‍💨</div>
-          <div>
-            <strong>You're exhausted by your own mind</strong>
-            <p>Not from doing too much — from thinking too much. You're tired in a way that sleep doesn't fix, because the problem is happening inside your head.</p>
-          </div>
-        </li>
-        <li class="pain-item">
-          <div class="pain-icon">🚫</div>
-          <div>
-            <strong>You've tried the advice and it doesn't stick</strong>
-            <p>"Just breathe." "Be present." "Let it go." You know what you're supposed to do. You just can't make it work when the spiral hits.</p>
-          </div>
-        </li>
-        <li class="pain-item">
-          <div class="pain-icon">🤐</div>
-          <div>
-            <strong>You carry it alone</strong>
-            <p>You don't talk about it — because it sounds weak, or dramatic, or like something you should just handle. So you carry it. Every day. Every night.</p>
-          </div>
-        </li>
-      </ul>
+        <h2 class="pain-heading">you know exactly <em>what this feels like.</em></h2>
+
+        <div class="pain-moment">
+          <p>it's 2am and you're replaying a conversation from three days ago. not because anything went wrong. just because your brain started — and once it starts, it doesn't know how to stop.</p>
+        </div>
+
+        <div class="pain-moment">
+          <p>you've been tired all day. your body is done. but the moment the room goes quiet, something switches on. thoughts you haven't had time to think. things you should have said. things you shouldn't have. the worst-case version of something that probably won't even happen.</p>
+        </div>
+
+        <div class="pain-moment">
+          <p>you know the advice. breathe. be present. write it down. you've tried all of it. it works fine in the afternoon. it doesn't do anything at 3am when you're already inside the spiral and your brain is mid-sprint.</p>
+        </div>
+
+        <div class="pain-moment">
+          <p>sometimes you cancel things — not because you're too busy, but because you need to decompress. except decompressing for you just means lying quietly while your brain keeps going at full speed.</p>
+        </div>
+
+        <div class="pain-moment">
+          <p>you don't say any of this out loud. because it sounds dramatic, or like something you should just handle. so you carry it. every day. every night.</p>
+        </div>
+
+        <p class="pain-close">you're not broken. your brain is just working overtime — for someone who cares too much about getting things right.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== SOLUTION SECTION ===================== -->
-  <section class="solution-section section-pad">
+  <!-- PULL QUOTE — breaks the grid intentionally -->
+  <section class="pull-quote-section">
     <div class="container">
-      <h2>Imagine instead...</h2>
-      <p class="solution-intro">What your life looks like on the other side of this.</p>
-
-      <ul class="solution-list">
-        <li class="solution-item">
-          <div class="solution-check">✦</div>
-          <div>
-            <strong>Falling asleep without the ambush</strong>
-            <p>You get into bed and your brain isn't waiting for you. The Night Protocol has already processed the day. The quiet is real.</p>
-          </div>
-        </li>
-        <li class="solution-item">
-          <div class="solution-check">✦</div>
-          <div>
-            <strong>Catching a spiral before it takes you under</strong>
-            <p>You notice the thought loop starting and you know exactly what to do. You interrupt it in 90 seconds and move on with your day.</p>
-          </div>
-        </li>
-        <li class="solution-item">
-          <div class="solution-check">✦</div>
-          <div>
-            <strong>Feeling in charge of your own mind</strong>
-            <p>Not thinking less — thinking differently. Your thoughts aren't running you anymore. You know how to quiet them when they get loud.</p>
-          </div>
-        </li>
-        <li class="solution-item">
-          <div class="solution-check">✦</div>
-          <div>
-            <strong>Finally feeling rested — properly rested</strong>
-            <p>Because you slept without the 2am ambush. Because your brain had somewhere to put things before bed.</p>
-          </div>
-        </li>
-      </ul>
-
-      <p class="solution-close">That's exactly what The Quiet Mind Method gives you.</p>
+      <div class="pull-quote">
+        <p class="pull-quote-text">
+          your brain isn't the problem. it's doing exactly what it was built to do — scanning, holding, making sure you haven't forgotten anything important. it just doesn't know <em>when to stop.</em>
+        </p>
+        <p class="pull-quote-attr">— from The Quiet Mind Method</p>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== WHAT'S INSIDE ===================== -->
-  <section class="inside-section section-pad">
-    <div class="container">
-      <p class="section-label">What's inside</p>
-      <h2 class="section-heading">Everything you need. Nothing you don't.</h2>
-      <p class="section-sub">30 pages. 5 steps. No fluff. Real relief — starting tonight.</p>
+  <!-- SOLUTION — quiet, warm, like a hand on your shoulder -->
+  <section class="solution-section">
+    <div class="solution-inner">
+      <h2>here's what changes.</h2>
 
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-num">01</div>
+      <p>
+        this isn't about thinking less. it's about giving your brain somewhere to put things — so it doesn't have to hold them all night in case you forget.
+      </p>
+
+      <p>
+        the night protocol alone is what most people notice first. you start it at 7pm, not at bedtime. ten minutes. every unresolved thought, every worry, every thing you're carrying — you write it down. not to solve any of it. just to get it out.
+      </p>
+
+      <p>
+        your brain's been holding all of it in case you forget. once it's on paper, it lets go.
+      </p>
+
+      <p>
+        you get into bed and it's just... quiet. not silent — but quiet. <strong>the difference between a brain that's waiting for you in the dark and one that's already put things down for the night.</strong>
+      </p>
+
+      <p>
+        this guide gives you that system — five steps, thirty pages. everything that actually worked, nothing that didn't.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE — asymmetric, not a perfect grid -->
+  <section class="inside-section">
+    <div class="container">
+      <div class="inside-header">
+        <span class="section-eyebrow" style="display: block; text-align: center; color: var(--gold-dark);">what's inside</span>
+        <h2>everything you need. nothing you don't.</h2>
+        <p>30 pages. 5 steps. real relief — starting tonight.</p>
+      </div>
+
+      <!-- Step 01 gets featured treatment — bigger, darker, commands attention -->
+      <div class="step-featured">
+        <div class="step-featured-num">01</div>
+        <div>
           <h3>Name the Spiral</h3>
-          <p>Identify which of the 4 overthinking patterns you're in — the Replay, the Catastrophe, the Comparison, or the What-If Loop. Naming it is the beginning of escaping it.</p>
-        </div>
-        <div class="card">
-          <div class="card-num">02</div>
-          <h3>The 90-Second Reset</h3>
-          <p>A 4-step technique to interrupt any thought spiral within 90 seconds. Use it at your desk, in bed, on your commute — anywhere the spiral starts.</p>
-        </div>
-        <div class="card">
-          <div class="card-num">03</div>
-          <h3>The Night Protocol</h3>
-          <p>A 20-minute evening routine specifically designed to stop the 2am ambush before it starts. Process the day's backlog before bed so your brain isn't waiting for you in the dark.</p>
+          <p>there are four kinds of overthinking spirals — the replay, the catastrophe, the comparison, the what-if loop. most people live in one or two of them. knowing which one is yours is the beginning of getting out. this step takes ten minutes and changes how you see every spiral after.</p>
         </div>
       </div>
 
-      <div class="cards-grid-2" style="margin-top: 22px;">
-        <div class="card">
-          <div class="card-num">04</div>
-          <h3>The Thought Audit</h3>
-          <p>A 5-minute daily practice that asks 5 powerful questions to process your mental backlog. After 2–3 weeks, your brain starts self-auditing automatically.</p>
+      <!-- Steps 02–05 as rows -->
+      <div class="steps-list">
+        <div class="step-row">
+          <div class="step-row-num">02</div>
+          <div>
+            <h3>The 90-Second Reset</h3>
+            <p>a 4-step technique to interrupt any thought spiral within 90 seconds. use it at your desk, in bed, on your commute — anywhere the spiral starts. it sounds simple because it is. it works because of why it works, which the guide explains.</p>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-num">05</div>
-          <h3>Rewire the Pattern</h3>
-          <p>Three long-term shifts that reduce how often spirals happen in the first place. The slow game — and the most powerful one.</p>
+
+        <div class="step-row">
+          <div class="step-row-num">03</div>
+          <div>
+            <h3>The Night Protocol</h3>
+            <p>a 20-minute evening routine built specifically to stop the 2am ambush before it starts. you do it at 7pm — not at bedtime. process the day's unresolved thoughts before bed so your brain isn't waiting for you in the dark. this is usually the first thing people notice.</p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-row-num">04</div>
+          <div>
+            <h3>The Thought Audit</h3>
+            <p>five questions. five minutes. every day. after two or three weeks, your brain starts self-auditing automatically — because it knows where the questions lead, and it starts doing the work before you ask.</p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-row-num">05</div>
+          <div>
+            <h3>Rewire the Pattern</h3>
+            <p>three long-term shifts that reduce how often spirals happen in the first place. the slow game — and the most powerful one. the kind of change you notice three weeks in when you realise you got out of the last spiral twice as fast.</p>
+          </div>
         </div>
       </div>
 
-      <div class="cards-grid-2" style="margin-top: 22px; max-width: 480px; margin-left: auto; margin-right: auto;">
-        <div class="card card-bonus" style="grid-column: 1 / -1;">
-          <div class="card-num">✦</div>
+      <!-- Bonus -->
+      <div class="bonus-card">
+        <div class="bonus-icon">✦</div>
+        <div>
           <h3>Bonus: The Quiet Mind Daily Card</h3>
-          <p>A printable one-page cheat sheet — your morning Thought Audit, midday Reset, and Night Protocol all on one page. Stick it somewhere you'll actually see it.</p>
+          <p>a printable one-page cheat sheet — your morning thought audit, midday reset, and night protocol all on one page. stick it somewhere you'll actually see it. not your notes app.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SOCIAL PROOF ===================== -->
-  <section class="proof-section section-pad">
+  <!-- TESTIMONIALS — real quotes, not review widgets -->
+  <section class="proof-section">
     <div class="container">
-      <p class="section-label">What readers are saying</p>
-      <h2 class="section-heading">Real words from real people</h2>
-      <p class="section-sub" style="margin-bottom: 48px;">People who were exactly where you are right now.</p>
+      <div class="proof-header">
+        <span class="section-eyebrow" style="display: block; text-align: center; color: var(--gold-dark);">what people say</span>
+        <h2>from people who were exactly here.</h2>
+      </div>
 
       <div class="testimonials-grid">
         <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"I read this in one sitting. The Night Protocol changed my sleep within a week — I didn't realise that what I'd been calling 'insomnia' was actually just an unprocessed backlog. Exactly what I needed and I wish I'd found it years ago."</p>
-          <div class="testimonial-author">Sarah M.</div>
-          <div class="testimonial-role">Teacher, 34</div>
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">I read this in one sitting. The Night Protocol changed my sleep within a week — I didn't realise that what I'd been calling insomnia was actually just an unprocessed backlog. I wish I'd found it years ago.</p>
+          <div class="testimonial-author">sarah m. &nbsp;—&nbsp; teacher, 34</div>
         </div>
         <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"I almost didn't buy this because I assumed it wasn't for me. I'm an engineer — I thought this was the kind of thing I'd find useless. It was exactly for me. The 90-Second Reset works better than anything I've tried. My wife asked what changed."</p>
-          <div class="testimonial-author">James R.</div>
-          <div class="testimonial-role">Software engineer, 38</div>
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">I almost didn't buy this because I assumed it wasn't for me. I'm an engineer — I thought this would be useless. It was exactly for me. The 90-Second Reset works better than anything I've tried. My wife asked what changed.</p>
+          <div class="testimonial-author">james r. &nbsp;—&nbsp; software engineer, 38</div>
         </div>
         <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The part about naming your spiral type stopped me cold. Just knowing the pattern helped me understand something I'd had for years. The writing doesn't treat you like a patient. Genuinely one of the best $10 I've ever spent."</p>
-          <div class="testimonial-author">Priya T.</div>
-          <div class="testimonial-role">Freelance designer, 31</div>
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">The part about naming your spiral type stopped me cold. Just knowing the pattern helped me understand something I'd had for years. The writing doesn't treat you like a patient. Genuinely one of the best $10 I've spent.</p>
+          <div class="testimonial-author">priya t. &nbsp;—&nbsp; freelance designer, 31</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== CREDIBILITY ===================== -->
-  <section class="credibility-section section-pad-sm">
+  <!-- CREDIBILITY — personal note, not a bio section -->
+  <section class="credibility-section">
     <div class="container">
       <div class="credibility-inner">
-        <h2>Why this guide exists</h2>
+        <h2>why this guide exists</h2>
         <p>
-          This wasn't written by a researcher or a therapist. It was written by someone who spent years trapped in the 2am spiral — who tried every app, every worksheet, every technique — and only found relief when they stopped fighting their thoughts and started changing their relationship with them.
+          this wasn't written by a researcher or a therapist. it was written by someone who spent years inside the 2am spiral — who tried every app, every worksheet, every breathing technique — and only found relief when they stopped fighting their thoughts and started changing their relationship with them.
         </p>
-        <br />
         <p>
-          The Quiet Mind Method is everything that actually worked, distilled into five steps and thirty pages. No filler. No fluff. Just the thing that finally made a difference — for anyone exhausted by their own mind.
+          everything that actually worked is in here. distilled into five steps and thirty pages. no filler. no theory. just the thing that finally made a difference.
+        </p>
+        <p>
+          if you've been carrying this alone for a while — this was made for you.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== FINAL CTA ===================== -->
-  <section class="final-cta section-pad" id="get-it">
-    <div class="container">
-      <div style="max-width: 660px; margin: 0 auto; text-align: center;">
-        <p class="section-label" style="color: var(--gold);">You've been in your head long enough</p>
-        <h2>It's time to get <em>quiet</em></h2>
-        <p class="final-cta-sub">
-          30 pages. 5 steps. One-time purchase. Yours instantly.<br>
-          Start the Night Protocol tonight.
-        </p>
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="get-it">
+    <div class="final-cta-inner">
+      <span class="section-eyebrow-light">you've been in your head long enough</span>
+      <h2>it's time to get <em>quiet.</em></h2>
+      <p class="final-cta-sub">
+        30 pages. 5 steps. one-time purchase — yours forever.<br>
+        start the night protocol tonight.
+      </p>
 
-        <a href="https://theonefelipe.gumroad.com/l/the-quiet-mind" class="btn-primary btn-large" target="_blank" rel="noopener">
-          Yes, I want the Quiet Mind Method
-        </a>
+      <a href="https://theonefelipe.gumroad.com/l/the-quiet-mind" class="btn-primary btn-large" target="_blank" rel="noopener">
+        i want a quieter mind — $9.99
+      </a>
 
-        <p class="price-display"><strong>$9.99</strong> — one-time · yours forever · instant PDF download</p>
+      <p class="price-note"><strong>$9.99</strong> &nbsp;·&nbsp; one-time &nbsp;·&nbsp; instant PDF download &nbsp;·&nbsp; yours forever</p>
+      <p class="trust-line">secure checkout via Gumroad &nbsp;·&nbsp; no subscription &nbsp;·&nbsp; no account required</p>
+    </div>
 
-        <div style="margin-top: 24px; font-size: 0.85rem; color: rgba(253,250,245,0.35);">
-          ✓ Secure checkout via Gumroad &nbsp;·&nbsp; ✓ Instant download &nbsp;·&nbsp; ✓ No subscription
-        </div>
-      </div>
+    <!-- FAQ -->
+    <div class="faq-wrap">
+      <span class="faq-label">questions</span>
 
-      <!-- FAQ -->
-      <div class="faq-wrap">
-        <h3>Questions?</h3>
+      <details>
+        <summary>is this for serious anxiety or everyday overthinking?</summary>
+        <p>everyday overthinking — the kind that makes you lie awake, replay things, and feel exhausted by your own mind. it's not a clinical tool and it's not therapy. if you have a diagnosed anxiety disorder, this might complement that — but it's not designed as a replacement. it's a practical system for people whose brains won't stop.</p>
+      </details>
 
-        <details>
-          <summary>Is this for serious anxiety or just everyday overthinking?</summary>
-          <p>This guide is written for everyday overthinking — the kind that makes you lie awake, replay conversations, and feel exhausted by your own mind. It's not a clinical tool and it's not a replacement for therapy. If you're dealing with a diagnosed anxiety disorder, this can complement professional support, but it's not designed as a standalone treatment.</p>
-        </details>
+      <details>
+        <summary>how is this different from other guides?</summary>
+        <p>most guides give you things you've already heard. this one has a specific framework — five named steps — and a night-specific protocol built for the 2am spiral. it's written by someone who solved this problem, not someone writing about it from the outside. and it's 30 pages. you'll actually read it.</p>
+      </details>
 
-        <details>
-          <summary>How is this different from other "stop overthinking" guides?</summary>
-          <p>Most guides give you generic advice you've already heard. This one has a specific framework (5 named steps), a night-specific protocol for the 2am spiral, and is written like someone who solved this problem — not a textbook. It's designed and shorter than most: 30 focused pages you'll actually read.</p>
-        </details>
+      <details>
+        <summary>how quickly will i notice a difference?</summary>
+        <p>most people notice something the first night they try the night protocol. the thought audit starts showing results within a week. the deeper pattern work in step 5 is slower — but you'll notice the spirals getting shorter and easier to escape within two or three weeks of using it consistently.</p>
+      </details>
 
-        <details>
-          <summary>How quickly will I feel a difference?</summary>
-          <p>Most people notice something different the first night they try the Night Protocol. The Thought Audit starts showing results within a week of daily practice. The deeper rewiring in Step 5 is a longer game — but you'll notice the spirals getting shorter and less frequent within 2–3 weeks of consistent use.</p>
-        </details>
+      <details>
+        <summary>what format is it? can i read it on my phone?</summary>
+        <p>it's a PDF — designed to read well on screen and look good printed. works on your phone, tablet, laptop, or printed out. once you buy it, it's yours. no app, no account, no subscription. just the file.</p>
+      </details>
 
-        <details>
-          <summary>What format is it? Can I read it on my phone?</summary>
-          <p>It's a beautifully designed PDF, optimised for both screen reading and printing. It looks great on your phone, tablet, laptop, or printed out. Once purchased, it's yours to keep, download, and access forever — no app, no subscription, no login required.</p>
-        </details>
-
-        <details>
-          <summary>Is this actually for men too, or is it really a "wellness" thing?</summary>
-          <p>It's genuinely for anyone. The 2am spiral, the replaying, the catastrophising — these aren't gendered experiences. Men just rarely see themselves in wellness content, which is exactly why this guide doesn't ask you to journal your feelings or sit with your emotions. It gives you a practical system. That's it. Several of the people who've found it most useful are men who "don't do this kind of thing."</p>
-        </details>
-      </div>
+      <details>
+        <summary>is this actually for men too, or is it a "wellness" thing?</summary>
+        <p>it's genuinely for anyone. the 2am spiral, the replaying, the catastrophising — these aren't gendered. this guide doesn't ask you to journal your feelings or sit with your emotions. it gives you a practical system. several of the people who've found it most useful are men who "don't do this kind of thing." it's not that kind of thing.</p>
+      </details>
     </div>
   </section>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>© 2026 The Quiet Mind Method · All rights reserved · Questions? <a href="mailto:juan.f.osorio@outlook.com" style="color:var(--gold-light);">juan.f.osorio@outlook.com</a></p>
-      <p style="margin-top:12px; font-size:14px; opacity:0.6;">Want more like this? <a href="https://innerresetclub.gumroad.com/subscribe" target="_blank" rel="noopener" style="color:var(--gold-light); text-decoration:underline;">Subscribe for updates</a></p>
+      <p class="footer-personal">made for anyone who just needs their mind to be a little quieter.</p>
+      <p>© 2026 The Quiet Mind Method &nbsp;·&nbsp; <a href="mailto:juan.f.osorio@outlook.com">juan.f.osorio@outlook.com</a> &nbsp;·&nbsp; <a href="https://innerresetclub.gumroad.com/subscribe" target="_blank" rel="noopener">subscribe for more</a></p>
     </div>
   </footer>
 
